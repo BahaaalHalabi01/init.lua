@@ -4,6 +4,7 @@ vim.keymap.set("n","[b","<Cmd>BufferLineCyclePrev<CR>",{desc = "prev buffer"})
 
 vim.keymap.set("n","<leader>bp","<Cmd>BufferLinePick<CR>",{desc = "pick buffer"})
 vim.keymap.set("n","<leader>bd","<Cmd>BufferLinePickClose<CR>",{desc = "pick close buffer"})
+vim.keymap.set("n","<leader>bc","<Cmd>bd<CR>",{desc = "close buffer"})
  require('bufferline').setup{
         options = {
             mode = "buffers", -- set to "tabs" to only show tabpages instead
