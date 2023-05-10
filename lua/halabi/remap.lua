@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+vim.keymap.set("n","<C-h>",'',{ desc = 'left window'})
 vim.keymap.set("n","<C-h>",'<C-W>h',{ desc = 'left window'})
 vim.keymap.set("n","<C-l>",'<C-W>l',{ desc = 'right window'})
 vim.keymap.set("n","<C-]>", "<Cmd>vertical topleft split tags<CR>",{desc = " up window"})
