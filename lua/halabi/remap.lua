@@ -1,12 +1,15 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+
+vim.keymap.set("n","|", "<cmd>vsplit<cr>", {desc = "Vertical Split" })
+
 vim.keymap.set("n","<C-h>",'',{ desc = 'left window'})
 vim.keymap.set("n","<C-h>",'<C-W>h',{ desc = 'left window'})
 vim.keymap.set("n","<C-l>",'<C-W>l',{ desc = 'right window'})
 vim.keymap.set("n","<C-]>", "<Cmd>vertical topleft split tags<CR>",{desc = " up window"})
-vim.keymap.set("n","<C-s>", "<Cmd>:w<CR><Esc>",{desc = "save"})
-vim.keymap.set("i","<C-s>", "<Cmd>:w<CR><Esc>",{desc = " save insert"})
+vim.keymap.set("n","<C-s>", "<Cmd>w!<CR><Esc>",{desc = "save"})
+vim.keymap.set("i","<C-s>", "<Cmd>w!<CR><Esc>",{desc = " save insert"})
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
