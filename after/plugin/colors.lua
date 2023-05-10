@@ -1,58 +1,71 @@
-function ColorMyPencils(color)
-	color = color or "rose-pine"
-	vim.cmd.colorscheme(color)
-end
+require('rose-pine').setup({
+	--- @usage 'auto'|'main'|'moon'|'dawn'
+	variant = 'auto',
+	--- @usage 'main'|'moon'|'dawn'
+	dark_variant = 'main',
+	bold_vert_split =true,
+	dim_nc_background = false,
+	disable_background = false,
+	disable_float_background = false,
+	disable_italics = false,
 
-ColorMyPencils()
+	--- @usage string hex value or named color from rosepinetheme.com/palette
+	groups = {
+		background = 'base',
+		background_nc = 'base',
+		panel = 'base',
+		panel_nc = 'base',
+		border = 'base',
+		comment = 'muted',
+		link = 'iris',
+		punctuation = 'subtle',
+
+		error = 'love',
+		hint = 'iris',
+		info = 'foam',
+		warn = 'gold',
+
+		headings = {
+			h1 = 'iris',
+			h2 = 'foam',
+			h3 = 'rose',
+			h4 = 'gold',
+			h5 = 'pine',
+			h6 = 'foam',
+		}
+		-- or set all headings at once
+		-- headings = 'subtle'
+	},
+
+	-- Change specific vm highlight groups
+	-- https://github.com/rose-pine/neovim/wiki/Recipes
+	highlight_groups = {
+		ColorColumn = { bg = 'text' },
+
+		-- Blend colours against the "base" background
+		CursorLine = { bg = 'foam', blend = 10 },
+		StatusLine = { fg = 'love', bg = 'love', blend = 10 },
+	}
+})
+
+-- Set colorscheme after options
+vim.cmd('colorscheme rose-pine')
+
 
 require("transparent").setup({
   groups = { -- table: default groups
+'Normal', 'NormalNC', 'Comment', 'Constant', 'Special', 'Identifier',
+    'Statement', 'PreProc', 'Type', 'Underlined', 'Todo', 'String', 'Function',
+    'Conditional', 'Repeat', 'Operator', 'Structure', 'LineNr', 'NonText',
+    'SignColumn', 'CursorLineNr', 'EndOfBuffer',
   },
-  extra_groups = {}, -- table: additional groups that should be cleared
+  extra_groups = {
+      "NormalFloat",
+      "NvimTreeNormal"
+  }, -- table: additional groups that should be cleared
   exclude_groups = {}, -- table: groups you don't want to clear
 })
 
- require("astrotheme").setup({
-  palette = "astrodark", -- String of the default palette to use when calling `:colorscheme astrotheme`
+vim.g.rose_pine = vim.g.transparent_enabled 
 
-  termguicolors = true, -- Bool value, toggles if termguicolors are set by AstroTheme.
 
-  terminal_color = true, -- Bool value, toggles if terminal_colors are set by AstroTheme.
-
-  plugin_default = "auto", -- Sets how all plugins will be loaded
-                           -- "auto": Uses lazy / packer enabled plugins to load highlights.
-                           -- true: Enables all plugins highlights.
-                           -- false: Disables all plugins.
-
-  plugins = {              -- Allows for individual plugin overides using plugin name and value from above.
-    ["bufferline.nvim"] = false,
-  },
-
-  palettes = {
-    global = {             -- Globaly accessible palettes, theme palettes take priority.
-      my_grey = "#ebebeb",
-      my_color = "#ffffff"
-    },
-    astrodark = {          -- Extend or modify astrodarks palette colors
-      red = "#800010",      -- Overrides astrodarks red color
-      my_color = "#000000" -- Overrides global.my_color
-    },
-  },
-
-  highlights = {
-    global = {             -- Add or modify hl groups globaly, theme specific hl groups take priority.
-      modify_hl_groups = function(hl, c)
-        hl.PluginColor4 = {fg = c.my_grey, bg = c.none }
-      end,
-      ["@String"] = {fg = "#ff00ff", bg = "NONE"},
-    },
-    astrodark = {
-      -- first parameter is the highlight table and the second parameter is the color palette table
-      modify_hl_groups = function(hl, c) -- modify_hl_groups function allows you to modify hl groups,
-        hl.Comment.fg = c.my_color
-        hl.Comment.italic = true
-      end,
-      ["@String"] = {fg = "#ff00ff", bg = "NONE"},
-    },
-   },
-})

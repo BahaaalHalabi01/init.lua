@@ -33,15 +33,7 @@ cmp.setup({
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
     },
-    sources = {
-        { name = 'path' },
-        { name = 'nvim_lsp' },
-        { name = 'buffer',  keyword_length = 3 },
-        { name = 'luasnip', keyword_length = 2 },
-    }
 })
-
-
 
 -- Setup language servers.
 local lspconfig = require('lspconfig')
