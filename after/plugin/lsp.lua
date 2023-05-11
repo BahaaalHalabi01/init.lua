@@ -1,7 +1,10 @@
-local lsp = require('lsp-zero').preset({})
+local lsp = require('lsp-zero').preset("recommended")
 
--- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+require('lspconfig')
+lsp.ensure_installed({
+    'tsserver',
+    'rust_analyzer'
+})
 
 lsp.set_preferences({
     suggest_lsp_servers = false,
@@ -14,18 +17,9 @@ lsp.set_preferences({
 })
 
 
-lsp.on_attach(function(client, bufnr)
-    local opts = { buffer = bufnr, remap = false }
-
-end)
-
-lsp.setup()
-
-vim.diagnostic.config({
-    virtual_text = true
-})
-
 local cmp = require('cmp')
+
+
 cmp.setup({
     mapping = {
         ['<C-k>'] = cmp.mapping.select_prev_item(),
@@ -33,24 +27,21 @@ cmp.setup({
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
     },
-})
+    sources = cmp.config.sources({
+        { name = "nvim_lsp", priority = 1000 },
+        { name = "luasnip",  priority = 750 },
+        { name = "buffer",   priority = 500 },
+        { name = "path",     priority = 250 },
+    })
 
--- Setup language servers.
-local lspconfig = require('lspconfig')
-lspconfig.tsserver.setup {}
-lspconfig.rust_analyzer.setup {
-    -- Server-specific settings. See `:help lspconfig-setup`
-    settings = {
-        ['rust-analyzer'] = {},
-    },
-}
+})
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<space>le', vim.diagnostic.open_float,{desc = 'diagnosic float'})
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev,{desc = 'prev diagnostic'})
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next,{desc = 'next diagnostic'})
-vim.keymap.set('n', '<space>lq', vim.diagnostic.setloclist,{desc = 'diagnostic loc list'})
+vim.keymap.set('n', '<space>le', vim.diagnostic.open_float, { desc = 'diagnosic float' })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'prev diagnostic' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'next diagnostic' })
+vim.keymap.set('n', '<space>lq', vim.diagnostic.setloclist, { desc = 'diagnostic loc list' })
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -59,6 +50,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
         -- Enable completion triggered by <c-x><c-o>
         vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
 
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -77,8 +69,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<space>lf', function()
-            vim.lsp.buf.format { async = true }
-        end, {buffer = ev.buf, desc = "format"})
     end,
+})
+
+lsp.on_attach(function(client, bufnr)
+    local opts = { buffer = bufnr, remap = false }
+end)
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+
+lsp.setup()
+vim.diagnostic.config({
+    virtual_text = true
 })

@@ -1,14 +1,13 @@
 require('rose-pine').setup({
+    disable_background = true,
 	--- @usage 'auto'|'main'|'moon'|'dawn'
 	variant = 'auto',
 	--- @usage 'main'|'moon'|'dawn'
 	dark_variant = 'main',
-	bold_vert_split =true,
-	dim_nc_background = false,
-	disable_background = false,
-	disable_float_background = false,
+	bold_vert_split =false,
+	dim_nc_background =true,
+	disable_float_background =true,
 	disable_italics = false,
-
 	--- @usage string hex value or named color from rosepinetheme.com/palette
 	groups = {
 		background = 'base',
@@ -19,7 +18,6 @@ require('rose-pine').setup({
 		comment = 'muted',
 		link = 'iris',
 		punctuation = 'subtle',
-
 		error = 'love',
 		hint = 'iris',
 		info = 'foam',
@@ -39,13 +37,7 @@ require('rose-pine').setup({
 
 	-- Change specific vm highlight groups
 	-- https://github.com/rose-pine/neovim/wiki/Recipes
-	highlight_groups = {
-		ColorColumn = { bg = 'text' },
 
-		-- Blend colours against the "base" background
-		CursorLine = { bg = 'foam', blend = 10 },
-		StatusLine = { fg = 'love', bg = 'love', blend = 10 },
-	}
 })
 
 -- Set colorscheme after options
@@ -66,6 +58,16 @@ require("transparent").setup({
   exclude_groups = {}, -- table: groups you don't want to clear
 })
 
-vim.g.rose_pine = vim.g.transparent_enabled 
+
+    function ColorMyPencils(color) 
+	color = color or "rose-pine"
+	vim.cmd.colorscheme(color)
+
+	vim.api.nvim_set_hl(0, "ColorColumn", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+end
+
+ColorMyPencils()
 
 
