@@ -120,19 +120,11 @@ use{
     },
   }
   use {
-    "folke/neodev.nvim",
-    opts = {
-      override = function(root_dir, library)
-        for _, astronvim_config in ipairs(astronvim.supported_configs) do
-          if root_dir:match(astronvim_config) then
-            library.plugins = true
-            break
-          end
-        end
-        vim.b.neodev_enabled = library.enabled
-      end,
-    },
-  }
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}
 
 end)
 
