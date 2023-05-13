@@ -85,33 +85,16 @@ _G.packer_plugins = {
     path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["aerial.nvim"] = {
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/opt/aerial.nvim",
-    url = "https://github.com/stevearc/aerial.nvim"
-  },
   ["alpha-nvim"] = {
     config = { "\27LJ\2\na\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\0" },
     loaded = true,
     path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  astrotheme = {
-    loaded = true,
-    path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/astrotheme",
-    url = "https://github.com/AstroNvim/astrotheme"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
-  },
-  ["cmp-nvim-lsp"] = {
-    loaded = true,
-    path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
-    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["coc.nvim"] = {
     loaded = true,
@@ -123,50 +106,40 @@ _G.packer_plugins = {
     path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/dressing.nvim",
     url = "https://github.com/stevearc/dressing.nvim"
   },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lazygit.nvim"] = {
     loaded = true,
     path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/lazygit.nvim",
     url = "https://github.com/kdheepak/lazygit.nvim"
   },
-  ["lsp-zero.nvim"] = {
+  ["leap.nvim"] = {
     loaded = true,
-    path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
-    url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+    path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/leap.nvim",
+    url = "https://github.com/ggandor/leap.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
-  ["mason-lspconfig.nvim"] = {
-    loaded = true,
-    path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
-    url = "https://github.com/williamboman/mason-lspconfig.nvim"
-  },
-  ["mason.nvim"] = {
-    loaded = true,
-    path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/mason.nvim",
-    url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["neo-tree.nvim"] = {
-    loaded = true,
-    path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
-    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
-  },
   ["neovim-session-manager"] = {
     loaded = true,
     path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/neovim-session-manager",
     url = "https://github.com/Shatur/neovim-session-manager"
-  },
-  ["nui.nvim"] = {
-    loaded = true,
-    path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/nui.nvim",
-    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["nvim-autopairs"] = {
     config = { "\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0" },
@@ -214,6 +187,14 @@ _G.packer_plugins = {
     path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
   },
+  ["telescope-fzf-native.nvim"] = {
+    cond = { "\27LJ\2\nK\0\0\3\0\4\1\v6\0\0\0009\0\1\0009\0\2\0'\2\3\0B\0\2\2\b\0\0\0X\0\2Ä+\0\1\0X\1\1Ä+\0\2\0L\0\2\0\tmake\15executable\afn\bvim\2\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = true,
+    path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/opt/telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/bh2_ru/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -248,29 +229,26 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
-time([[Config for nvim-autopairs]], false)
 -- Config for: which-key.nvim
 time([[Config for which-key.nvim]], true)
 try_loadstring("\27LJ\2\nt\0\0\3\0\a\0\0156\0\0\0009\0\1\0+\1\2\0=\1\2\0006\0\0\0009\0\1\0)\1ê\1=\1\3\0006\0\4\0'\2\5\0B\0\2\0029\0\6\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\15timeoutlen\ftimeout\6o\bvim\0", "config", "which-key.nvim")
 time([[Config for which-key.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+try_loadstring("\27LJ\2\n@\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\19nvim-autopairs\frequire\0", "config", "nvim-autopairs")
+time([[Config for nvim-autopairs]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
 -- Config for: alpha-nvim
 time([[Config for alpha-nvim]], true)
 try_loadstring("\27LJ\2\na\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\vconfig\27alpha.themes.dashboard\nsetup\nalpha\frequire\0", "config", "alpha-nvim")
 time([[Config for alpha-nvim]], false)
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Event lazy-loads
-time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au User AstroFile ++once lua require("packer.load")({'aerial.nvim'}, { event = "User AstroFile" }, _G.packer_plugins)]]
-time([[Defining lazy-load event autocommands]], false)
-vim.cmd("augroup END")
+-- Conditional loads
+time([[Conditional loading of telescope-fzf-native.nvim]], true)
+  require("packer.load")({"telescope-fzf-native.nvim"}, {}, _G.packer_plugins)
+time([[Conditional loading of telescope-fzf-native.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

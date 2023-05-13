@@ -1,8 +1,7 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
-
-vim.keymap.set("n", "<C-\\>", "<cmd>vsplit.<cr>", { desc = "Vertical Split" })
+vim.keymap.set("n", "<C-\\>", "<cmd>vsplit<cr>", { desc = "Vertical Split" })
 
 vim.keymap.set("n", "<C-h>", '', { desc = 'left window' })
 vim.keymap.set("n", "<C-h>", '<C-W>h', { desc = 'left window' })
@@ -19,12 +18,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "<leader>vwm", function()
-    require("vim-with-me").StartVimWithMe()
-end)
-vim.keymap.set("n", "<leader>svwm", function()
-    require("vim-with-me").StopVimWithMe()
-end)
 
 -- greatest remap ever
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "past without yank" })
