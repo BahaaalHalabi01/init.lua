@@ -15,7 +15,7 @@ return require('packer').startup(function(use)
     use {
         'nvim-telescope/telescope-fzf-native.nvim',
         -- NOTE: If you are having trouble with this installation,
-        --       refer to the README for telescope-fzf-native for more instructions.
+        --       refer to the README for telescope-fzf-native for more instructions.packer
         build = 'make',
         cond = function()
             return vim.fn.executable 'make' == 1
@@ -52,6 +52,7 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
+    
 
     use { -- LSP Configuration & Plugins
         'neovim/nvim-lspconfig',
@@ -69,6 +70,11 @@ return require('packer').startup(function(use)
         },
     }
 
+    use 'williamboman/mason-lspconfig.nvim'
+    use {
+    "williamboman/mason.nvim",
+    run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+    }
     use { -- Adds git releated signs to the gutter, as well as utilities for managing changes
         'lewis6991/gitsigns.nvim',
         opts = {
@@ -82,16 +88,13 @@ return require('packer').startup(function(use)
             },
         },
     }
+
+    use'hrsh7th/cmp-nvim-lsp'
     use {  -- Autocompletion
         'hrsh7th/nvim-cmp',
         dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
     }
-    use({
-	"L3MON4D3/LuaSnip",
-	-- follow latest release.
-	tag = "v<CurrentMajor>.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-	-- install jsregexp (optional!:).
-})
+    use("L3MON4D3/LuaSnip")
     use { -- Add indentation guides even on blank lines
         'lukas-reineke/indent-blankline.nvim',
         -- Enable `lukas-reineke/indent-blankline.nvim`
