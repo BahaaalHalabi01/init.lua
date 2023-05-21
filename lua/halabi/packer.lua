@@ -1,4 +1,4 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- This file can be loaded by calling `lua require('plugins')` from your init.vimpacker
 -- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
 
@@ -22,13 +22,14 @@ return require('packer').startup(function(use)
     }
     use({ 'rose-pine/neovim', as = 'rose-pine' })
 
-     use { -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    },
-    build = ":TSUpdate",
-  }
+    use {     -- Highlight, edit, and navigate code
+        'nvim-treesitter/nvim-treesitter',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter-textobjects',
+        },
+        build = ":TSUpdate",
+    }
+    use('wakatime/vim-wakatime')
     use('folke/neodev.nvim')
     use('nvim-treesitter/playground')
     use('theprimeagen/harpoon')
@@ -52,9 +53,9 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true }
     }
-    
 
-    use { -- LSP Configuration & Plugins
+
+    use {     -- LSP Configuration & Plugins
         'neovim/nvim-lspconfig',
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
@@ -69,13 +70,14 @@ return require('packer').startup(function(use)
             'folke/neodev.nvim',
         },
     }
+    use('MunifTanjim/prettier.nvim')
 
     use 'williamboman/mason-lspconfig.nvim'
     use {
-    "williamboman/mason.nvim",
-    run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+        "williamboman/mason.nvim",
+        run = ":MasonUpdate"         -- :MasonUpdate updates registry contents
     }
-    use { -- Adds git releated signs to the gutter, as well as utilities for managing changes
+    use {                            -- Adds git releated signs to the gutter, as well as utilities for managing changes
         'lewis6991/gitsigns.nvim',
         opts = {
             -- See `:help gitsigns.txt`
@@ -89,13 +91,13 @@ return require('packer').startup(function(use)
         },
     }
 
-    use'hrsh7th/cmp-nvim-lsp'
-    use {  -- Autocompletion
+    use 'hrsh7th/cmp-nvim-lsp'
+    use {     -- Autocompletion
         'hrsh7th/nvim-cmp',
         dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
     }
     use("L3MON4D3/LuaSnip")
-    use { -- Add indentation guides even on blank lines
+    use {     -- Add indentation guides even on blank lines
         'lukas-reineke/indent-blankline.nvim',
         -- Enable `lukas-reineke/indent-blankline.nvim`
         -- See `:help indent_blankline.txt`

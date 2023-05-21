@@ -1,7 +1,7 @@
 vim.opt.termguicolors = true
-vim.keymap.set("n","<S-h>","<Cmd>BufferLineCycleNext<CR>",{desc = "next buffer"})
-vim.keymap.set("n","<S-l>","<Cmd>BufferLineCyclePrev<CR>",{desc = "prev buffer"})
-vim.keymap.set("n","<leader>bd","<Cmd>:%bd|e#a<CR>")
+vim.keymap.set("n","<S-h>","<Cmd>bnext!<CR>",{desc = "next buffer"})
+vim.keymap.set("n","<S-l>","<Cmd>bprevious!<CR>",{desc = "prev buffer"})
+vim.keymap.set("n","<leader>bd","<Cmd>:%bd|e#<CR>")
 vim.keymap.set("n","<leader>bc","<Cmd>bd<CR>",{desc = "close buffer"})
 
 
@@ -36,7 +36,7 @@ vim.keymap.set("n","<leader>bc","<Cmd>bd<CR>",{desc = "close buffer"})
               -- This can be used to change how bufferline fetches the icon
               -- for an element e.g. a buffer or a tab.
               -- e.g.
-              local hl = require('nvim-web-devicons').get_icon_by_filetype(element.filetype, { default = false })
+              local hl = require('nvim-web-devicons').get_icon_by_filetype(element.filetype, { default = true})
               return hl
             end,
             show_buffer_icons = true, -- disable filetype icons for buffers
@@ -46,13 +46,13 @@ vim.keymap.set("n","<leader>bc","<Cmd>bd<CR>",{desc = "close buffer"})
             show_duplicate_prefix = true , -- whether to show duplicate buffer prefix
             persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
             separator_style =  "thin" ,
-            enforce_regular_tabs = false ,
+            enforce_regular_tabs = true,
             always_show_bufferline = true ,
             hover = {
                 enabled = true,
                 delay = 200,
                 reveal = {'close'}
             },
-            sort_by = 'insert_after_current'
+            sort_by = 'id'
         }
     }
