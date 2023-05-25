@@ -122,7 +122,7 @@ return require('packer').startup(function(use)
     use("Shatur/neovim-session-manager");
     use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
     use('leafOfTree/vim-svelte-plugin')
-    use { 'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile' }
+    -- use { 'neoclide/coc.nvim', branch = 'master', run = 'yarn install --frozen-lockfile' }
     use {
         'numToStr/Comment.nvim',
         config = function()
